@@ -1,16 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.UI;
 
 public static class PatternFinder {
     public static List<HitBox> CheckWin(Dictionary<string, HitBox> fields) {
         List<HitBox> match;
-
+        
         var rows = GameManager.Instance.Rows;
         for (int x = 0; x < rows; x++) {
             for (int y = 0; y < rows; y++) {
                 for (int z = 0; z < rows; z++) {
                     // diagonal bottom left, top right
                     match = checkMatch(x, y, z, 1, -1, 0, fields);
+                    
 
                     // diagonal top left, bottom right
                     if (match == null) {
@@ -84,10 +87,12 @@ public static class PatternFinder {
 
     private static List<HitBox> checkMatch(int x, int y, int row, int dX, int dY, int dZ,
         Dictionary<string, HitBox> fields) {
+            //  [SerializeField, HideInInspector] private GameObject _hitBoxPrefab;
         List<HitBox> hitMatch = new List<HitBox>();
         int type = -1;
         int checkCount = 0;
-
+        // var parent = Instantiate(_planePrefab, transform);
+        // var hitbox = Instantiate(_hitBoxPrefab, parent.transform);
         var rows = GameManager.Instance.Rows;
         var match = GameManager.Instance.Match;
         while (checkCount < rows && x >= 0 && x < rows &&
@@ -95,6 +100,11 @@ public static class PatternFinder {
             bool found = false;
             var key = $"{x}{y}{row}";
             HitBox marker = fields.ContainsKey(key) ? fields[key] : null;
+            // HitBox marker = fields[1];
+            // GameManager.Instance.AddHitBox(hitbox.GetComponent<HitBox>(), 2, 2, 2);
+            // HitBox marker =hitbox.GetComponent<HitBox>(), i, j, row;
+            // Debug.Log(""+fields[1]);
+            
             if (marker != null && marker.Type != -1) {
                 if (type == -1) {
                     type = marker.Type;

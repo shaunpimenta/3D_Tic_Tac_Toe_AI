@@ -77,8 +77,12 @@ public class Board : MonoBehaviour {
             for (int j = 0; j < rows; j++) {
                 var totalSize = size.x - thickness * (rows - 1);
                 var offset = totalSize / rows;
+                // var positionX=100;
                 var positionX = thickness * i + offset * i + offset / 2.0f - size.x / 2.0f;
                 var positionY = thickness * j + offset * j + offset / 2.0f - size.x / 2.0f;
+                // Debug.Log(i);
+                // Debug.Log(j);
+                
                 //var totalSize = size.x - thickness * (rows - 1);
                 //var offset = totalSize / rows;
                 //var positionX = thickness * i + offset * i + offset / 2.0f - size.x / 2.0f;

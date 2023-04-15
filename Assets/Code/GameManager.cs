@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour {
     private static GameManager _instance;
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour {
 
     public void AddHitBox(HitBox hitBox, int x, int y, int row) {
         // store hit box with x y row as key
+
         _fields.Add($"{x}{y}{row}", hitBox);
     }
 
@@ -60,7 +63,10 @@ public class GameManager : MonoBehaviour {
         _turn++;
 
         _matchedPattern = PatternFinder.CheckWin(_fields);
-        Debug.Log(_maxMoves);
+        foreach (var i in _fields){
+            Debug.Log(i.Key);
+        }
+        Debug.Log(_fields);
         if (_matchedPattern != null) {
             // WINNER
             _gameEnd = true;

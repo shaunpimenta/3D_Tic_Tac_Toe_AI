@@ -11,6 +11,7 @@ public class HitBox : MonoBehaviour {
 
     private int _type = -1;
     public int Type => _type;
+        public int BoxNumber;
 
     private bool _markerPlaced = false;
 
@@ -24,6 +25,15 @@ public class HitBox : MonoBehaviour {
         }
 
         _renderer.enabled = true;
+        Vector3 clickPos = Input.mousePosition;
+    clickPos.z = Camera.main.nearClipPlane;
+    Vector3 worldPos = Camera.main.ScreenToWorldPoint(clickPos);
+
+    Collider collider = GetComponent<Collider>();
+    if (collider.bounds.Contains(worldPos))
+    {
+        Debug.Log("Hitbox clicked at " + worldPos);
+    }
     }
 
     private void OnMouseExit() {
@@ -35,15 +45,19 @@ public class HitBox : MonoBehaviour {
             return;
         }
 
+
         _renderer.enabled = false;
         _markerPlaced = true;
 
         _type = GameManager.Instance.Turn;
         var markerToSpawn = _type == 0 ? _x : _o;
         Instantiate(markerToSpawn, transform);
+        Debug.Log(transform.position);
 
         GameManager.Instance.MoveMade();
+                Debug.Log("Box " + BoxNumber + " clicked");
 
-        Debug.Log("compile");
+
+        // Debug.Log("compile");
     }
 }
