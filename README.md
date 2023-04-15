@@ -11,4 +11,4 @@ Our goal is to develop a fun 3D AI Tic Tac Toe game for the user.The goal of the
 
 ##Algorithm
 
-We will mostly go with alpha beta pruning so as to get a more efficient and faster solution
+We will mostly go with Minimax along with alpha beta pruning so as to get a more efficient and faster solution
