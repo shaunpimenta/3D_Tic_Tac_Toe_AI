@@ -8,3 +8,7 @@ Two players or a player and a computer compete in the game, and they alternate p
 ## Abstract:
 
 Our goal is to develop a fun 3D AI Tic Tac Toe game for the user.The goal of the game is to arrange three of your own markers in a straight line within the 3D board in any direction (horizontally, vertically, or diagonally). The game is played by two players, who alternately take turns placing their markers on open spaces on the board.The AI version of the game involves a computer program that uses artificial intelligence techniques to play the game against a human opponent. The AI program is designed to evaluate the game board and make intelligent decisions about where to place its next marker in order to increase its chances of winning the game.Game invloves Strategic thinking i.e a player has to think strategically and anticipate their opponent’s moves,Brain Exercise i.e,improves cognitive abilities.The Novelty of our game is a unique and uncommon game which makes it more exciting and interesting to play than the traditional two-dimensional version.
+
+##Algorithm
+
+We will mostly go with alpha beta pruning so as to get a more efficient and faster solution
